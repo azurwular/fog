@@ -93,11 +93,6 @@ public class UserValidator
             result.errors.put("email", "Email can't be empty");
         }
         
-        if (!this.userRepository.userExists(email))
-        {
-            result.errors.put("email", "Email doesnt Exist");
-        }
-        
         if (password == null || password.isEmpty())
         {
             result.errors.put("password", "Password can't be empty");

@@ -75,10 +75,10 @@ public class LoginServlet extends BaseServlet
             
             if (!validationResult.isValid)
             {
-                // TODO: Find a way to send errors back
+               
                 request.setAttribute("errors", validationResult.errors);
                 super.forward("/views/user/login.jsp", request, response);
-                //response.sendRedirect("/login");
+            
                 return;
             }
             
@@ -97,8 +97,9 @@ public class LoginServlet extends BaseServlet
             
             if (user == null)
             {
-                
-                response.sendRedirect("/login");
+                validationResult.errors.put("email", "User doesn't exist or password is wrong");
+                request.setAttribute("errors", validationResult.errors);
+                super.forward("/views/user/login.jsp", request, response);
                 return;
             }
             
