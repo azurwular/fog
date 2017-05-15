@@ -25,7 +25,9 @@
 
   <%@include file="/views/partial/nav.jsp" %>
 
-  <div class="form">
+  <div class="container-fluid main-content">
+      
+      <div class="form">
       
       <div class="tab-content">
         <div id="signup">   
@@ -100,7 +102,10 @@
       </div><!-- tab-content -->
       
 </div> <!-- /form -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      
+  </div>
+  
+  
 </body>
 </html>
 

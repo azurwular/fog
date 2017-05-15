@@ -9,7 +9,6 @@
       <a class="navbar-brand" href="/">FOG</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
       <li><a href="/carport/build">Build carport</a></li>
       <% if (sessionUser != null && !sessionUser.getRole().equals(UserRole.Visitor)) { %>
       <li><a href="/checkout">Checkout</a></li>

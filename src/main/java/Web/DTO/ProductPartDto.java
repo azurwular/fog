@@ -26,7 +26,16 @@ public class ProductPartDto
     {
         this.id = productPart.getId();
         this.type = productPart.getType();
-        this.name = productPart.getName();
+        
+        if (productPart.getLength() != 0)
+        {
+            this.name = productPart.getName() + " - " + productPart.getLength();
+        }
+        else
+        {
+            this.name = productPart.getName();
+        }
+        
         this.description = productPart.getDescription();
         this.stockUnit = productPart.getStockUnit();
         this.price = productPart.getPrice();

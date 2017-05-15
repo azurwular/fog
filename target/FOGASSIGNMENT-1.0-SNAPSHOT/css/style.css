@@ -17,8 +17,9 @@ html {
 }
 
 body {
-  background: #fff;
   font-family: 'Titillium Web', sans-serif;
+  background-image:url(/img/cover.jpg) !important;
+  background-size: cover !important;
 }
 
 a {
@@ -29,6 +30,14 @@ a {
 }
 a:hover {
   color: #179b77;
+}
+
+.hidden{
+    display: none;
+}
+
+.main-content {
+    
 }
 
 .form {
@@ -137,6 +146,10 @@ input:focus, textarea:focus {
 textarea {
   border: 2px solid #a0b3b0;
   resize: vertical;
+}
+
+select {
+    display: inherit;
 }
 
 .field-wrap {

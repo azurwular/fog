@@ -19,84 +19,88 @@
 <body>
 
   <%@include file="/views/partial/nav.jsp" %>
-
-  <div class="form">
+  
+  <div class="container-fluid main-content">
+      
+      <div class="form">
       <div class="tab-content">
           <div id="build-carport">   
             <h1>Build Carport</h1>
           
             <form action="/carport/build" method="post">
           
-                <div class="top-row">
-                  <div class="field-wrap">
+                  <div id="rooftype" class="field-wrap">
                     <label>
                         Select roof type<span class="req">*</span>
                     </label>
                       <select class="form-control">
-                          <option></option>
-                          <% for (RoofType roofType : roofTypes) { %>
-                          <option><%= roofType.toString() %></option>
+                          <option value='' selected disabled></option>
+                          <% for (int i = 0; i < roofTypes.length; i++) { %>
+                          <option value="<%= i %>"><%= roofTypes[i].toString() %></option>
                           <% } %>
                       </select>
                   </div>
                       
-                  <div id="fittings-screws" class="field-wrap">
+                  <div id="wood" class="field-wrap hidden">
                     <label>
                         Select Wood<span class="req">*</span>
                     </label>
                       <select class="form-control">
-                          <option></option>
+                          <option value='' selected disabled></option>
                           <% for (ProductPartDto productPart : woods) { %>
                           <option><%= productPart.getName()%></option>
                           <% } %>
                       </select>
                   </div>
                       
-                  <div id="wood-roofing" class="field-wrap">
+                  <div id="wood-roofing" class="field-wrap hidden">
                     <label>
                         Select Wood Roofing<span class="req">*</span>
                     </label>
                       <select class="form-control">
-                          <option></option>
+                          <option value='' selected disabled></option>
                           <% for (ProductPartDto productPart : woodRoofings) { %>
                           <option><%= productPart.getName()%></option>
                           <% } %>
                       </select>
                   </div>
                       
-                  <div id="roof-skeleton" class="field-wrap">
+                  <div id="roof-skeleton" class="field-wrap hidden">
                     <label>
                         Select Roof Skeleton<span class="req">*</span>
                     </label>
                       <select class="form-control">
-                          <option></option>
+                          <option value='' selected disabled></option>
                           <% for (ProductPartDto productPart : roofSkeletons) { %>
                           <option><%= productPart.getName()%></option>
                           <% } %>
                       </select>
                   </div>
                       
-                  <div id="fittings-screws" class="field-wrap">
+                  <div id="fittings-screws" class="field-wrap hidden">
                     <label>
                         Select Fittings & Screws<span class="req">*</span>
                     </label>
                       <select class="form-control">
-                          <option></option>
+                          <option value='' selected disabled></option>
                           <% for (ProductPartDto productPart : fittingsScrews) { %>
                           <option><%= productPart.getName()%></option>
                           <% } %>
                       </select>
                   </div>
                       
-                </div>
 
-                <button type="submit" class="button button-block">Add to cart</button>
+                <button id="add-to-cart" type="submit" class="button button-block hidden">Add to cart</button>
           
             </form>
         </div>
     </div>
   </div>
       
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  </div>
+
+  
+      
+  <script src='/js/build.js'></script>
 </body>
 </html>

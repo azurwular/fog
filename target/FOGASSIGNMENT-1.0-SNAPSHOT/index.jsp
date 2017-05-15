@@ -17,11 +17,8 @@
 
   <%@include file="/views/partial/nav.jsp" %>
 
-<div class="container-fluid welcome">
-  <img src="/img/cover.jpg" class="cover" />
+<div class="container-fluid main-content">
 </div>
-
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   
 </body>
 </html>
