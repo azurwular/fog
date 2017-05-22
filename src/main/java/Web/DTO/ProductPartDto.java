@@ -36,6 +36,8 @@ public class ProductPartDto
             this.name = productPart.getName();
         }
         
+        this.name = this.name + " - " + "(" + productPart.getStockUnit() + ") - price: " + productPart.getPrice() + " dkk";
+        
         this.description = productPart.getDescription();
         this.stockUnit = productPart.getStockUnit();
         this.price = productPart.getPrice();
@@ -88,6 +90,4 @@ public class ProductPartDto
     public void setPrice(float price) {
         this.price = price;
     }
-    
-    
 }

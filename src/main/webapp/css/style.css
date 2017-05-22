@@ -20,6 +20,7 @@ body {
   font-family: 'Titillium Web', sans-serif;
   background-image:url(/img/cover.jpg) !important;
   background-size: cover !important;
+  color: #ffffff;
 }
 
 a {
@@ -43,7 +44,7 @@ a:hover {
 .form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
-  max-width: 600px;
+  max-width: 800px;
   margin: 40px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -86,6 +87,13 @@ h1 {
   text-align: center;
   color: #ffffff;
   font-weight: 300;
+  margin: 0 0 40px;
+}
+
+h2 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 100;
   margin: 0 0 40px;
 }
 

@@ -11,11 +11,11 @@ import java.util.List;
  *
  * @author azurwular
  */
-public class Order
+public class OrderCarport
 {
     private int id;
-    private User customer;
-    private List<OrderCarport> Products;
+    private Order order;
+    private List<OrderProductPart> productParts;
 
     public int getId() {
         return id;
@@ -25,19 +25,19 @@ public class Order
         this.id = id;
     }
 
-    public User getCustomer() {
-        return customer;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setCustomer(User customer) {
-        this.customer = customer;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public List<OrderCarport> getProducts() {
-        return Products;
+    public List<OrderProductPart> getProductParts() {
+        return productParts;
     }
 
-    public void setProducts(List<OrderCarport> Products) {
-        this.Products = Products;
+    public void setProductParts(List<OrderProductPart> productParts) {
+        this.productParts = productParts;
     }
 }

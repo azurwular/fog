@@ -78,9 +78,9 @@ public class SignUpServlet extends BaseServlet
             // Validate request
             ValidationResult validationResult = this.userValidator.validateSignup(email, password, passwordConfirmation);
             
-            if (!validationResult.isValid)
+            if (!validationResult.isValid())
             {
-                request.setAttribute("errors", validationResult.errors);
+                request.setAttribute("errors", validationResult.getErrors());
                 super.forward("/views/user/signup.jsp", request, response);
                 return;
             }

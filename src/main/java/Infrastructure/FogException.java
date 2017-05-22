@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Web.DTO;
+package Infrastructure;
 
 /**
  *
  * @author azurwular
  */
-public final class SessionKeys
+public class FogException extends Exception
 {
-    public static final String user = "CurrentUser";
-    public static final String shoppingCart = "ShoppingCart";
+    
 }

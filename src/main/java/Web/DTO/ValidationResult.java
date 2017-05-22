@@ -13,12 +13,28 @@ import java.util.HashMap;
  */
 public class ValidationResult
 {
-    public boolean isValid;
-    public HashMap<String, String> errors;
+    private boolean isValid;
+    private HashMap<String, String> errors;
 
     public ValidationResult()
     {
         this.isValid = false;
         this.errors = new HashMap<>();
+    }
+
+    public boolean isValid() {
+        return isValid;
+    }
+
+    public void setIsValid(boolean isValid) {
+        this.isValid = isValid;
+    }
+
+    public HashMap<String, String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(HashMap<String, String> errors) {
+        this.errors = errors;
     }
 }

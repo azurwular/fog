@@ -133,6 +133,50 @@ public class UserRepository
         return user;
     }
     
+    /**
+     * Gets user from database
+     * @param id
+     * @return
+     * @throws SQLException
+     * @throws NullPointerException 
+     */
+    
+    public User get(int id) throws SQLException, NullPointerException, Exception 
+    {
+        // Query for the user
+        PreparedStatement selectStatement;
+        ResultSet rs;
+        User user = null;
+        String insertSQL = "SELECT * from user where id = ?";
+        
+        Connection connection = DataAccessObject.getConnection();
+        
+        selectStatement = connection.prepareStatement(insertSQL);
+        selectStatement.setInt(1, id);
+
+        rs = selectStatement.executeQuery();
+
+        if (rs.next())
+        {
+            user = new User(
+                rs.getInt("id"),
+                UserRole.valueOf(rs.getString("role")),
+                "",
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getString("email"),
+                rs.getString("phone"),
+                rs.getString("address"),
+                rs.getString("zipcode"),
+                rs.getString("city"),
+                rs.getString("country"));
+        }
+        
+        DataAccessObject.releaseConnection(connection);
+        
+        return user;
+    }
+    
     //
     public int create(User newUser) throws SQLException, Exception
     {

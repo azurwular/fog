@@ -73,12 +73,10 @@ public class LoginServlet extends BaseServlet
             // Validate request
             ValidationResult validationResult = this.userValidator.validateLogin(email, password);
             
-            if (!validationResult.isValid)
+            if (!validationResult.isValid())
             {
-               
-                request.setAttribute("errors", validationResult.errors);
+                request.setAttribute("errors", validationResult.getErrors());
                 super.forward("/views/user/login.jsp", request, response);
-            
                 return;
             }
             
@@ -97,8 +95,9 @@ public class LoginServlet extends BaseServlet
             
             if (user == null)
             {
-                validationResult.errors.put("email", "User doesn't exist or password is wrong");
-                request.setAttribute("errors", validationResult.errors);
+                // At this point, the user and password match is wrong
+                validationResult.getErrors().put("email", "User doesn't exist or password is wrong");
+                request.setAttribute("errors", validationResult.getErrors());
                 super.forward("/views/user/login.jsp", request, response);
                 return;
             }

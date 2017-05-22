@@ -48,7 +48,7 @@ public class UserValidator
             // Check if another user with this email already exists
             if (this.userRepository.userExists(email))
             {
-                result.errors.put("email", "The user already exists");
+                result.getErrors().put("email", "The user already exists");
             }
         } catch (SQLException ex)
         {
@@ -57,22 +57,22 @@ public class UserValidator
         
         if (password == null || password.isEmpty())
         {
-            result.errors.put("password", "Password can't be empty");
+            result.getErrors().put("password", "Password can't be empty");
         }
         
         if (passwordConfirmation == null || passwordConfirmation.isEmpty())
         {
-            result.errors.put("passwordConfirmation", "Password confirmation can't be empty");
+            result.getErrors().put("passwordConfirmation", "Password confirmation can't be empty");
         }
         
         if (password != null && passwordConfirmation !=null && !password.equals(passwordConfirmation))
         {
-            result.errors.put("password", "Password doesn't match password confirmation");
+            result.getErrors().put("password", "Password doesn't match password confirmation");
         }
         
-        if (result.errors.isEmpty())
+        if (result.getErrors().isEmpty())
         {
-            result.isValid = true;
+            result.setIsValid(true);
         }
         
         return result;
@@ -90,17 +90,22 @@ public class UserValidator
         
         if (email == null || email.isEmpty())
         {
-            result.errors.put("email", "Email can't be empty");
+            result.getErrors().put("email", "Email can't be empty");
+        }
+        
+        if (!this.userRepository.userExists(email))
+        {
+            result.getErrors().put("email", "Email doesnt Exist");
         }
         
         if (password == null || password.isEmpty())
         {
-            result.errors.put("password", "Password can't be empty");
+            result.getErrors().put("password", "Password can't be empty");
         }
         
-        if (result.errors.isEmpty())
+        if (result.getErrors().isEmpty())
         {
-            result.isValid = true;
+            result.setIsValid(true);
         }
         
         return result;
@@ -118,16 +123,16 @@ public class UserValidator
             // Check if another user with this email already exists
             if (this.userRepository.emailExists(user.getId(), user.getEmail()))
             {
-                result.errors.put("email", "This email is already used");
+                result.getErrors().put("email", "This email is already used");
             }
         } catch (SQLException | ClassNotFoundException ex)
         {
             Logger.getLogger(UserValidator.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        if (result.errors.isEmpty())
+        if (result.getErrors().isEmpty())
         {
-            result.isValid = true;
+            result.setIsValid(true);
         }
         
         return result;
@@ -137,7 +142,7 @@ public class UserValidator
     {
         if (email == null || email.isEmpty())
         {
-            result.errors.put("email", "Email can't be empty");
+            result.getErrors().put("email", "Email can't be empty");
         }
         else
         {
@@ -145,7 +150,7 @@ public class UserValidator
             Matcher matcher = pattern.matcher(email);
             if (!matcher.matches())
             {
-                result.errors.put("email", "Email is not valid");
+                result.getErrors().put("email", "Email is not valid");
             }
         }
     }

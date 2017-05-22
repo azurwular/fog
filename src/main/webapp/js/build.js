@@ -1,37 +1,41 @@
-$('#rooftype > select').change(function() {
-    /// for roof type flat, make wood roofing and fittings visible
-    if ($(this).val() === '0') {
-        $('#wood-roofing').removeClass('hidden');
-        $('#fittings-screws').removeClass('hidden');
-        $('#wood').addClass('hidden');
-        $('#roof-skeleton').addClass('hidden');
-    }else if ($(this).val() === '1') {
-    /// for roof type triangle, make wood, roof-skeleton and fittings visible
-    
-        $('#wood').removeClass('hidden');
-        $('#roof-skeleton').removeClass('hidden');
-        $('#fittings-screws').removeClass('hidden');
-        $('#wood-roofing').addClass('hidden');
-    }
-    else{
-        if (!$('#wood-roofing').hasClass('hidden'))
-        {
+$(document).ready(function(){
+    $('#rooftype > select').bind('change', function() {
+        /// for roof type flat, make wood roofing and fittings visible
+        if ($(this).val() === '0') {
+            $('#wood-roofing').removeClass('hidden');
+            $('#fittings-screws').removeClass('hidden');
+            $('#wood').addClass('hidden');
+            $('#roof-skeleton').addClass('hidden');
+        }else if ($(this).val() === '1') {
+        /// for roof type triangle, make wood, roof-skeleton and fittings visible
+
+            $('#wood').removeClass('hidden');
+            $('#roof-skeleton').removeClass('hidden');
+            $('#fittings-screws').removeClass('hidden');
             $('#wood-roofing').addClass('hidden');
         }
-        if (!$('#fittings-screws').hasClass('hidden'))
-        {
-            $('#fittings-screws').addClass('hidden');
+        else{
+            if (!$('#wood-roofing').hasClass('hidden'))
+            {
+                $('#wood-roofing').addClass('hidden');
+            }
+            if (!$('#fittings-screws').hasClass('hidden'))
+            {
+                $('#fittings-screws').addClass('hidden');
+            }
+            if (!$('#wood').hasClass('hidden'))
+            {
+                $('#wood').addClass('hidden');
+            }
+            if (!$('#roof-skeleton').hasClass('hidden'))
+            {
+                $('#roof-skeleton').addClass('hidden');
+            }
         }
-        if (!$('#wood').hasClass('hidden'))
-        {
-            $('#wood').addClass('hidden');
-        }
-        if (!$('#roof-skeleton').hasClass('hidden'))
-        {
-            $('#roof-skeleton').addClass('hidden');
-        }
-    }
+    });
+    $('#rooftype > select').trigger('change');
 });
+
 
 $('select').change(function() {
     // check if all selects have values and show the add to cart button
