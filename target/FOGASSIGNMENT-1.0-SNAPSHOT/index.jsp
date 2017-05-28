@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Apr 6, 2017, 11:38:10 AM
-    Author     : petermihok
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
