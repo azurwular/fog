@@ -14,7 +14,6 @@ import java.util.List;
 public class OrderCarport
 {
     private int id;
-    private Order order;
     private List<OrderProductPart> productParts;
 
     public int getId() {
@@ -23,14 +22,6 @@ public class OrderCarport
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public List<OrderProductPart> getProductParts() {

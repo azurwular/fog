@@ -37,6 +37,7 @@
                                         <th>Quantity</th>
                                         <th>Price</th>
                                     </tr>
+                                </thead>
                                 <tbody>
                                     <% List<ShoppingCartCarportItemDto> productParts = shoppingCart.getCarports().get(i).getProductParts(); %>
                                     <% for (int j = 0; j < productParts.size(); j++) { %>
@@ -47,7 +48,6 @@
                                     </tr>
                                     <% } %>
                                 </tbody>
-                                </thead>
                             </table>
                             <h4>Price: <%= carports.get(i).getPrice() %> DKK</h4>
                         </div>

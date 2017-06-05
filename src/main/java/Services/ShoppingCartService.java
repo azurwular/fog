@@ -80,7 +80,7 @@ public class ShoppingCartService
     {
         Order order = new Order();
         User user = null;
-        
+        //get the user from the db
         try {
             user = this.userRepository.get(userId);
             
@@ -94,15 +94,14 @@ public class ShoppingCartService
         } catch (Exception ex) {
             Logger.getLogger(ShoppingCartService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        //set the user in the order
         order.setCustomer(user);
-        
+          //Now we need a list of orderCarpots because an order can contain many carports 
         List<OrderCarport> orderCarports = new ArrayList<>();
-        
+          //go through all the carports in the cart and we put them in the orderCarports arraylist 
         for (ShoppingCartCarportDto carport : shoppingCart.getCarports())
         {
             OrderCarport orderCarport = CreateOrderCarport(carport);
-            orderCarport.setOrder(order);
             orderCarports.add(orderCarport);
         }
         
@@ -114,7 +113,7 @@ public class ShoppingCartService
     private OrderCarport CreateOrderCarport(ShoppingCartCarportDto shoppingCartCarport)
     {
         OrderCarport orderCarport = new OrderCarport();
-        
+        //each carport is made out of a list of product parts 
         List<OrderProductPart> orderProductparts = new ArrayList<>();
         
         for (ShoppingCartCarportItemDto carportPart : shoppingCartCarport.getProductParts())
@@ -160,6 +159,7 @@ public class ShoppingCartService
         {
             case Flat:
                 ProductPart woodRoofing = this.productPartRepository.get(woodRoofingId);
+                //Add a dto version of the woodRoofing
                 shoppingCartCarport.getProductParts().add(MapToShoppingCartCarportItem(woodRoofing, woodRoofingQuantity));
                 break;
             case Triangle:

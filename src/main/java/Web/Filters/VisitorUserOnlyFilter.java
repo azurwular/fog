@@ -37,8 +37,9 @@ public class VisitorUserOnlyFilter extends BaseFilter
         {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             httpResponse.sendRedirect("/");
+    
         }
-        
+       
         // Pass the request to other filters or the servlet
         chain.doFilter(request, response);
     }

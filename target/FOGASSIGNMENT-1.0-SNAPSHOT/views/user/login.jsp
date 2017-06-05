@@ -1,8 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : Apr 6, 2017, 11:39:25 AM
-    Author     : petermihok
---%>
+
 
 <%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

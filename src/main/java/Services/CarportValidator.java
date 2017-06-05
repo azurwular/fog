@@ -64,7 +64,7 @@ public class CarportValidator
                 validateTriangle(result, woodId, woodQuantity, roofSkeletonId);
                 break;
         }
-        
+        //get the fittingsScrews from the DB
         ProductPart fittingsScrews = this.productPartRepository.get(fittingsScrewsId);
         
         if (fittingsScrews == null)
@@ -97,7 +97,7 @@ public class CarportValidator
         {
             result.getErrors().put("woodRoofingQuantity", "You need at least one wood roofing for a flat roof type.");
         }
-        
+        //get the woodRoofing from the DB
         ProductPart woodRoofing = this.productPartRepository.get(woodRoofingId);
         
         if (woodRoofing == null)
@@ -127,7 +127,7 @@ public class CarportValidator
         {
             result.getErrors().put("woodQuantity", "You need at least one wood for a triangle roof type.");
         }
-        
+        //Get the wood and roofSkeleton from the DB
         ProductPart wood = this.productPartRepository.get(woodId);
         ProductPart roofSkeleton = this.productPartRepository.get(roofSkeletonId);
         

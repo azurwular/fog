@@ -138,7 +138,7 @@ public class UserValidator
         return result;
     }
     
-    private void validateEmail(ValidationResult result, String email)
+    public void validateEmail(ValidationResult result, String email)
     {
         if (email == null || email.isEmpty())
         {
